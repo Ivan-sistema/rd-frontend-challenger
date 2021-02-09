@@ -59,7 +59,7 @@
             })
             .catch(e => {
                 console.log(e);
-                alert("Falha de comunicação.");
+                alert("Houve uma falha de comunicação, Tente novamente mais tarde!");
             });
 
         const fakeJwtToken = `${btoa(email+password)}.${btoa(data.url)}.${(new Date()).getTime()+300000}`;
@@ -70,11 +70,22 @@
     }
 
     async function getDevelopersList(url) {
-        /**
-         * bloco de código omitido
-         * aqui esperamos que você faça a segunda requisição 
-         * para carregar a lista de desenvolvedores
-         */
+
+        let data = await fetch(url)
+        .then(res => {
+            if (!res.ok) {
+                throw Error(res.statusText);
+            }
+            return res.json();
+        })
+        .catch(e => {
+            alert("Houve uma falha de comunicação, tente novamente mais tarde!");
+
+            localStorage.removeItem("token");
+            document.location.reload(true);
+        });
+
+        return data;
     }
 
     function renderPageUsers(users) {
