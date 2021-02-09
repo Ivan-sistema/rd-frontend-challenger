@@ -90,15 +90,25 @@
 
     function renderPageUsers(users) {
         app.classList.add('logged');
-        Login.style.display = /* trecho omitido */
+        Login.style.display = none;
 
         const Ul = create('ul');
         Ul.classList.add('container')
 
-        /**
-         * bloco de código omitido
-         * exiba a lista de desenvolvedores
-         */
+        users.map(user => {
+            const li = create("li");
+            const img = create("img");
+            const span = create("span");
+
+            img.setAttribute("src", user.avatar_url);
+            img.setAttribute("alt", user.login);
+
+            span.innerHTML = user.login;
+
+            li.appendChild(img);
+            li.appendChild(span);
+            Ul.appendChild(li);
+        });
 
         app.appendChild(Ul)
     }
