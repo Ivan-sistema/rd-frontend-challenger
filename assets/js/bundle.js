@@ -49,13 +49,22 @@
 
     async function fakeAuthenticate(email, password) {
 
-        /**
-         * bloco de código omitido
-         * aqui esperamos que você faça a requisição ao URL informado
-         */
+        let url = "http://www.mocky.io/v2/5dba690e3000008c00028eb6";
+        let data = await fetch(url)
+            .then(res => {
+                if (!res.ok) {
+                    throw Error(res.statusText);
+                }
+                return res.json();
+            })
+            .catch(e => {
+                console.log(e);
+                alert("Falha de comunicação.");
+            });
 
         const fakeJwtToken = `${btoa(email+password)}.${btoa(data.url)}.${(new Date()).getTime()+300000}`;
-        /* trecho omitido */
+
+        localStorage.setItem("token", fakeJwtToken);
 
         return data;
     }
