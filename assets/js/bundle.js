@@ -22,8 +22,8 @@
 
     Form.onsubmit = async e => {
         e.preventDefault();
-        const [email, password] = /* trecho omitido */
 
+        const [email, password] = document.querySelectorAll("input")
         const {url} = await fakeAuthenticate(email.value, password.value);
 
         location.href='#users';
