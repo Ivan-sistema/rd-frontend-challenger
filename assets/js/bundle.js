@@ -90,7 +90,7 @@
 
     function renderPageUsers(users) {
         app.classList.add('logged');
-        Login.style.display = none;
+        Login.style.display = "none";
 
         const Ul = create('ul');
         Ul.classList.add('container')
