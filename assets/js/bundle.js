@@ -39,10 +39,10 @@
             : button.removeAttribute('disabled');
     };
 
-    Form.innerHTML = /**
-    * bloco de código omitido
-    * monte o seu formulário
-    */
+    Form.innerHTML = `
+    <input type="email" name="email" id="email" placeholder="Entre com seu e-mail" required />
+    <input type="password" name="password" id="password" placeholder="Digite sua senha" required />
+    <button name="btn btn--open" id="btnOpen" disabled>Entrar</button>`;
 
     app.appendChild(Logo);
     Login.appendChild(Form);
