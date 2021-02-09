@@ -115,7 +115,7 @@
 
     // init
     (async function(){
-        const rawToken = /* trecho omitido */
+        const rawToken = localStorage.getItem("token");
         const token = rawToken ? rawToken.split('.') : null
         if (!token || token[2] < (new Date()).getTime()) {
             localStorage.removeItem('token');
@@ -126,5 +126,5 @@
             const users = await getDevelopersList(atob(token[1]));
             renderPageUsers(users);
         }
-    })()
-})()
+    })();
+})();
