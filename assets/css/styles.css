@@ -33,3 +33,150 @@ body {
 /**
 * YOUR CODE HERE
 */
+
+#app {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+input{
+    width: 100%;
+    float: left;
+    display: flex;
+    align-items: center;
+    margin: 5px 0;
+    padding-left: 2% ;
+    border: none;
+    border-radius: 5px;
+    background: #d1d1d1;
+    height: 40px;
+}
+
+input:focus{
+    background: #d1d1d1;
+
+}
+button {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    float: left;
+    border: none;
+    border-radius: 5px;
+    background: #d1d1d1;
+    color: #fff;
+    height: 40px;
+    margin-top:5px;
+
+}
+
+button:enabled {
+    background: #178428;
+    transition: opacity 1s;
+}
+
+button:enabled:hover {
+    opacity: 0.75;
+}
+
+.logotipo{
+    width: 45px;
+    height: auto;
+}
+
+.login {
+    width: 400px;
+    background: #e0e0e0;
+    margin:25px 0 0;
+    padding: 17px 17px 27px;
+    border-top-left-radius: 15px;
+    border-bottom-right-radius: 15px ;
+    animation: change-border-radius 1s;
+    -webkit-animation-duration: 0.5s;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-direction: alternate;
+}
+
+.login form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 40rem;
+}
+
+
+.container li {
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    background: #ffffff;
+    border-radius: 5px;
+    margin: 5px;
+    padding: 5px;
+
+}
+
+.container li:hover img {
+    transform: scale(1.7);
+    filter: grayscale(0);
+    transition: transform 1s;
+}
+
+.container li img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    filter: grayscale(100%);
+}
+
+.container li span {
+    color: #8c939a;
+    margin: 0 5px;
+}
+
+/*=================
+MOBILE
+======*/
+
+@media screen and (max-width: 801px){
+    .login {
+        width: 40vmax;
+    }
+    .container {
+        width: 40vmax;
+        height: 90vmax;
+    }
+}
+
+/*==================
+ANIMATION
+ */
+/* Keyframes */
+@keyframes change-border-radius {
+    0% {
+        border-top-left-radius: 0px;
+        border-bottom-right-radius: 0px ;
+    }
+    35% {
+        border-top-left-radius: 5px;
+        border-bottom-right-radius: 5px ;
+    }
+    70% {
+        border-top-left-radius: 10px;
+        border-bottom-right-radius: 10px ;
+    }
+    100% {
+        border-top-left-radius: 15px;
+        border-bottom-right-radius: 15px ;
+    }
+}

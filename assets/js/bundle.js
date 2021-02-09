@@ -14,9 +14,9 @@
 
     Login.classList.add('login');
 
-    const Logo = create('img');
-    Logo.src = './assets/images/logo.svg';
-    Logo.classList.add('logo');
+    const Logotipo = create('img');
+    Logotipo.src = './assets/images/logo.svg';
+    Logotipo.classList.add('logotipo');
 
     const Form = create('form');
 
@@ -27,14 +27,14 @@
         const {url} = await fakeAuthenticate(email.value, password.value);
 
         location.href='#users';
-        
+
         const users = await getDevelopersList(url);
         renderPageUsers(users);
     };
 
     Form.oninput = e => {
         const [email, password, button] = e.target.parentElement.children;
-        (!email.validity.valid || !email.value || password.value.length <= 5) 
+        (!email.validity.valid || !email.value || password.value.length <= 5)
             ? button.setAttribute('disabled','disabled')
             : button.removeAttribute('disabled');
     };
@@ -44,7 +44,7 @@
     <input type="password" name="password" id="password" placeholder="Digite sua senha" required />
     <button name="btn btn--open" id="btnOpen" disabled>Entrar</button>`;
 
-    app.appendChild(Logo);
+    app.appendChild(Logotipo);
     Login.appendChild(Form);
 
     async function fakeAuthenticate(email, password) {
