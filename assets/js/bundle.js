@@ -1,10 +1,17 @@
 (() => {
-    const selector = selector => /* trecho omitido */
-    const create = element => /* trecho omitido */
+    const selector = selector => {
+        const el = document.querySelector(selector);
+        return el;
+    }
+
+    const create = element => {
+        const el = document.createElement(element);
+        return el;
+    }
 
     const app = selector('#app');
-
     const Login = create('div');
+
     Login.classList.add('login');
 
     const Logo = create('img');
